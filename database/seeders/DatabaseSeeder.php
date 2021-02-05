@@ -46,6 +46,6 @@ class DatabaseSeeder extends Seeder
         $booking->travel()->associate($travel);
         $booking->save();
 
-        $booking->seats()->create(['description' => 'A1']);
+//        $booking->seats()->create(['row' => 1, 'column' => 'A']);
     }
 }

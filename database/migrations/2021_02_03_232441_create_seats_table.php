@@ -15,7 +15,8 @@ class CreateSeatsTable extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
-            $table->string('description', 4)->comment('A1 until Z100');
+            $table->tinyInteger('row')->unsigned();
+            $table->string('column', 2)->comment('A until ZZ');
             $table->bigInteger('booking_id')->unsigned();
             $table->foreign('booking_id')
                 ->references('id')

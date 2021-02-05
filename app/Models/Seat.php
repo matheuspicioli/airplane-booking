@@ -13,7 +13,8 @@ class Seat extends Model
 
     protected $table = 'seats';
     protected $fillable = [
-        'description',
+        'row',
+        'column',
     ];
 
     public function booking(): BelongsTo
