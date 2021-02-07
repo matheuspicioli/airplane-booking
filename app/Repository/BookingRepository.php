@@ -32,7 +32,7 @@ class BookingRepository extends BaseRepository implements BookingRepositoryContr
     public function store(BookingData $data): Booking
     {
         $model = $this->model();
-        $model->fill($data->except('customer')->toArray());
+        $model->fill($data->toArray());
         $model->save();
 
         return $model;

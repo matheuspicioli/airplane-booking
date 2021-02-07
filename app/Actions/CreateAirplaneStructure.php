@@ -7,15 +7,13 @@ use Illuminate\Support\Collection;
 
 class CreateAirplaneStructure
 {
-    private array $data;
     private Aircraft $aircraft;
     private array $rows;
 
-    public function __construct(array $data)
+    public function __construct()
     {
         $aircraft = Aircraft::findOrFail(1);
         $this->aircraft = $aircraft;
-        $this->data = $data;
         $rows = [];
 
         for ($i = 1; $i <= $this->aircraft->rows; $i++) {
