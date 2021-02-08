@@ -23,8 +23,7 @@ class ReserveThreeSeat implements SeatStrategy
                 $seat_repository = app(SeatRepositoryContract::class);
                 $seats->add($seat_repository->store($dto));
             }
-        } else if ($column === 'B' || $column === 'E'){
-            // Is not verified the nexts columns
+        } else if ($column === 'B' || $column === 'E') {
             for ($i = 0; $i < $seats_to_reserve; $i++) {
                 $next_row = $row;
                 $next_column = chr(ord($column)+$i);
@@ -41,7 +40,6 @@ class ReserveThreeSeat implements SeatStrategy
                 $seats->add($seat_repository->store($dto));
             }
         } else if ($column === 'C' || $column === 'F') {
-            // Is not verified the nexts columns
             for ($i = 0; $i < $seats_to_reserve; $i++) {
                 $next_row = $row+$i;
                 $next_column = $column;

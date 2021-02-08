@@ -5,6 +5,10 @@ namespace App\Contexts;
 use App\Contexts\Contracts\SeatStrategy;
 use Illuminate\Support\Collection;
 
+/**
+ * Using the Strategy pattern for be a extensible,
+ * in case need a more rule, just create a new strategy.
+ */
 class SeatContext
 {
     private SeatStrategy $seat_strategy;

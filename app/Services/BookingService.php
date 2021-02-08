@@ -30,6 +30,10 @@ class BookingService implements ServiceContract
         $booking = $this->booking_repository->findOrFail(1);
         $seats_alread_booked = $booking->seats->map(fn($seat) => $seat->column.$seat->row);
         $airplane_structure = (new CreateAirplaneStructure)();
+
+        /**
+         * Define the strategy by the seats
+         */
         $strategies_by_seats = [
             1 => new ReserveOneSeat,
             2 => new ReserveTwoSeat,

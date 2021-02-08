@@ -1,15 +1,13 @@
-# Aplicação (service app)
-Responsável por configurar toda a parte do php (extensões, composer, etc),
-também irá configurar o usuário www-data e root, além de criar o `$user` 
-e dar as permissões necessárias à ele.
+# Configurations
+The application use docker/docker-compose to run an development environment.
 
-# Servidor HTTP (service nginx)
-Alterar configuração dentro de docker-compose/nginx/airplanebooking.conf.
-É uma configuração padrão para o laravel (public/ como entrada)
-e também padroniza o caminho dos logs para quando executar o comando
-`logs` do composer ele busque no diretório correto.
+Create the `.env` on root project folder. The only requirement is have `db` value
+on `DB_HOST` variable. This represent the `db` service, especified on the `docker-compose.yml`.
 
-# Banco de dados (service db)
-Apenas necessário alterar o `.env` e restartar seu service para surtir efeito.
+#Run
+On the root folder:
+* `docker-compose up -d` Wait a feel seconds and execute the next command
+* `docker-compose exec app php artisan migrate --seed`
 
-Muito importante que a variável `DB_HOST` no `.env` esteja setada como db (nome do service).
+# Tests
+* `docker-compose exec app php artisan test`

@@ -24,10 +24,14 @@ class ReserveTwoSeat implements SeatStrategy
                 $seats->add($seat_repository->store($dto));
             }
         } else if ($column === 'C' || $column === 'F') {
-            // Is not verified the nexts columns
             for ($i = 0; $i < $seats_to_reserve; $i++) {
                 $next_row = $row+$i;
                 $next_column = $column;
+
+                /**
+                 * @TODO: identify the pattern to apply a more elegant solution.
+                 *      Maybe using the position for a someone count
+                 */
                 if ($i === 1) {
                     $next_column = $column === 'C' ? 'A' : 'D';
                 }

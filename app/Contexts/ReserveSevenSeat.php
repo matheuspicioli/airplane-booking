@@ -58,6 +58,10 @@ class ReserveSevenSeat implements SeatStrategy
                 $next_column = chr(ord($column)+$i);
                 $next_row = $row;
 
+                /**
+                 * @TODO: refactor the rule below, this is necessary because
+                 *      the $next_column ever increments one letter
+                 */
                 if ($next_column === 'G' || $next_column === 'J') {
                     $next_column = 'D';
                 } else if ($next_column === 'H' || $next_column === 'K') {
